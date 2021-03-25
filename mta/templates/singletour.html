@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+
+
+{% block title %} Mukul Travel Agency | Tours {% endblock %}
+{% block activeTour %} active {% endblock activeTour %}
+
+{% block main %}
+<section class="hero py-6 py-lg-7 text-white dark-overlay"><img class="bg-image"
+    src="https://images.unsplash.com/photo-1532591455532-a175dc32c181?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+    alt="How can we help you today?">
+<div class="container overlay-content">
+    <!-- Breadcrumbs -->
+    <ol class="breadcrumb text-white justify-content-center no-border mb-0">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active">Tours </li>
+    </ol>
+    <h1 class="hero-heading">Have a look on our tour plans</h1>
+</div>
+</section>
+<section class="py-6 bg-gray-100">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-md-10">
+        <p class="subtitle text-primary">Most popular Packages</p>
+        <h2>What's on our radar</h2>
+      </div>
+    </div>
+    <div class="row">
+
+      {% for tour in tour %}
+      {% if forloop.counter == 1 %}
+      <div class="d-flex align-items-lg-stretch mb-4 col-lg-8">
+        <div class="card shadow-lg border-0 w-100 border-0 hover-animate"
+          style="background: center center url('/media/{{tour.image}}') no-repeat; background-size: cover;">
+          <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
+            <h3 class="text-shadow text-uppercase mb-0">{{tour.name}}</h3>
+          </div>
+        </div>
+      </div>
+      {% else %}
+      <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
+        <div class="card shadow-lg border-0 w-100 border-0 hover-animate"
+          style="background: center center url('/media/{{tour.image}}') no-repeat; background-size: cover;">
+          <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
+            <h3 class="text-shadow text-uppercase mb-0">{{tour.name}}</h3>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% if forloop.counter == 2 %}
+    </div>
+    <div class="row">
+      {% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+    
+{% endblock %}

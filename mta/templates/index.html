@@ -1,0 +1,133 @@
+{% extends 'layout.html' %}
+
+
+{% block title %} Mukul Travel Agency | Home {% endblock %}
+{% block activeHome %} active {% endblock activeHome %}
+{% block main %}
+
+</header>
+<section class="position-relative py-6"><img class="bg-image" src="/media/{{home.0.hero_img}}" alt="">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="bg-white rounded-lg shadow p-5"><strong
+            class="text-uppercase text-secondary d-inline-block mb-2 text-sm">{{ home.0.hero_pink }}</strong>
+          <h2 class="mb-3">{{ home.0.hero_black }}</h2>
+          <p class="text-muted">{{ home.0.hero_grey_l1 }}<br>{{ home.0.hero_grey_l2 }}<br>{{ home.0.hero_grey_l3
+            }}<br>{{ home.0.hero_grey_l4 }}<br>{{ home.0.hero_grey_l5 }}<br></p>
+          <a class="btn btn-link p-0" href="{{ home.0.phone_no }}">{{ home.0.hero_blue }}<i
+              class="fa fa-long-arrow-alt-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="py-6 bg-gray-100">
+  <div class="container">
+    <div class="text-center pb-lg-4">
+      <p class="subtitle text-secondary">One-of-a-kind vacation rentals</p>
+      <h2 class="mb-5">Booking with us is easy</h2>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 mb-3 mb-lg-0 text-center">
+        <div class="px-0 px-lg-3">
+          <div class="icon-rounded bg-primary-light mb-3">
+            <i class="fas fa-car" style="zoom: 2; color: #4E66F8;"></i>
+          </div>
+          <h3 class="h5">Find the perfect rental</h3>
+          <p class="text-muted">We Provide the best car Rental Service following every norms by the Government of India
+            Understanding Covid-19. Our Service is Best and always on Time</p>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-3 mb-lg-0 text-center">
+        <div class="px-0 px-lg-3">
+          <div class="icon-rounded bg-primary-light mb-3">
+            <i class="fas fa-bookmark" style="zoom: 2; color: #4E66F8;"></i>
+          </div>
+          <h3 class="h5">Book with confidence</h3>
+          <p class="text-muted">Just make a Phone Call and we will book Your dream vacation or Taxi you want. It is that
+            easy. Don't hesitate, Go ahead.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-3 mb-lg-0 text-center">
+        <div class="px-0 px-lg-3">
+          <div class="icon-rounded bg-primary-light mb-3">
+            <i class="fas fa-heart" style="zoom: 2; color: #4E66F8;"></i>
+          </div>
+          <h3 class="h5">Enjoy your vacation</h3>
+          <p class="text-muted">Tour Planning is always seemless by us. You will get the Best Hotel, Best Travel
+            Experience and Best Place to visit. We always try to maintain a smile on your face. So Enjoy your Vacation
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Divider Section-->
+<section class="py-7 position-relative dark-overlay"><img class="bg-image" src="/media/{{home.0.section_img}}" alt="">
+  <div class="container">
+    <div class="overlay-content text-white py-lg-5">
+      <h3 class="display-3 font-weight-bold text-serif text-shadow mb-5">{{ home.0.section_text }}</h3><a
+        class="btn btn-light" href="/contact#c-form">Get started</a>
+    </div>
+  </div>
+</section>
+
+<section class="py-6 bg-gray-100">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-md-10">
+        <p class="subtitle text-primary">Most popular Packages</p>
+        <h2>What's on our radar</h2>
+      </div>
+      <div class="col-md-2">
+        <a class="btn btn-link pt-3" href="/tour-packages">View All<i
+          class="fa fa-long-arrow-alt-right"></i></a>
+      </div>
+    </div>
+    <div class="row">
+
+      {% for tour in tour|slice:":5" %}
+      {% if forloop.counter == 1 %}
+      <div class="d-flex align-items-lg-stretch mb-4 col-lg-8">
+        <div class="card shadow-lg border-0 w-100 border-0 hover-animate"
+          style="background: center center url('/media/{{tour.image}}') no-repeat; background-size: cover;">
+          <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
+            <h3 class="text-shadow text-uppercase mb-0">{{tour.name}}</h3>
+          </div>
+        </div>
+      </div>
+      {% else %}
+      <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
+        <div class="card shadow-lg border-0 w-100 border-0 hover-animate"
+          style="background: center center url('/media/{{tour.image}}') no-repeat; background-size: cover;">
+          <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
+            <h3 class="text-shadow text-uppercase mb-0">{{tour.name}}</h3>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% if forloop.counter == 2 %}
+    </div>
+    <div class="row">
+      {% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+
+
+{% endblock %}
+
+
+
+<!-- JavaScript files-->
+{% block script %}
+<script>
+
+</script>
+{% endblock %}

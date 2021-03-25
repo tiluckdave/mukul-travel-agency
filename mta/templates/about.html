@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+
+{% block title %} Mukul Travel Agency | About {% endblock %}
+{% block activeAbout %} active {% endblock activeAbout %}
+
+{% block main %}
+<section class="hero py-6 py-lg-7 text-white dark-overlay"><img class="bg-image"
+    src="https://images.unsplash.com/photo-1563906267088-b029e7101114?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+    alt="How can we help you today?">
+<div class="container overlay-content">
+    <!-- Breadcrumbs -->
+    <ol class="breadcrumb text-white justify-content-center no-border mb-0">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active">About </li>
+    </ol>
+    <h1 class="hero-heading">Know More About Us!</h1>
+</div>
+</section>
+<section>
+    <div class="container mx-10 my-4">
+        <p>Mukul Travel Agency, was earlier owned by Late Shri Gajanan Deshmukh. In his
+            memory we have again started the shop with the same vission and the same name. We are very glad
+            that we are here to help you on your every tour fantasy.</p>
+        <p>
+            Mukul Travels is now run by Rajendra Dave and son JAgdish Dave one of the close friend of late. Shri Gajanan Deshmukh. We are back again with full of enthusiasm and energy to serve you all the time. We request your trust and support.
+        </p>
+        <div class="social">
+            <ul class="list-inline">
+                <li class="list-inline-item"><a class="text-muted text-hover-primary"
+                        href="{{ home.0.twitter_link }}" target="_blank" title="twitter"><i
+                            class="fab fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a class="text-muted text-hover-primary"
+                        href="{{ home.0.facebook_link }}" target="_blank" title="facebook"><i
+                            class="fab fa-facebook"></i></a></li>
+                <li class="list-inline-item"><a class="text-muted text-hover-primary"
+                        href="{{ home.0.instagram_link }}" target="_blank" title="instagram"><i
+                            class="fab fa-instagram"></i></a></li>
+
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

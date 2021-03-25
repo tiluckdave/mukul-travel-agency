@@ -1,0 +1,206 @@
+{% extends 'layout.html' %}
+
+
+{% block title %} Mukul Travel Agency | Contact {% endblock %}
+{% block activeContact %} active {% endblock activeContact %}
+
+{% block main %}
+
+</header>
+<!-- Hero Section-->
+<section class="hero py-6 py-lg-7 text-white dark-overlay"><img class="bg-image"
+        src="https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/photo/photo-1522143049013-2519756a52d4.jpg"
+        alt="How can we help you today?">
+    <div class="container overlay-content">
+        <!-- Breadcrumbs -->
+        <ol class="breadcrumb text-white justify-content-center no-border mb-0">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active">Contact </li>
+        </ol>
+        <h1 class="hero-heading">How can we help you today?</h1>
+    </div>
+</section>
+<section class="py-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 text-center text-md-left mb-4 mb-md-0">
+                <div class="icon-rounded mb-4 bg-primary-light">
+                    <svg class="svg-icon w-2rem h-2rem text-primary">
+                        <use xlink:href="#map-location-1"> </use>
+                    </svg>
+                </div>
+                <h3 class="h5">Address</h3>
+                <p class="text-muted">{{ home.0.address_l1 }}
+                    <br>{{ home.0.address_l2 }}
+                    <br>{{ home.0.address_l3}}
+                    <br>{{home.0.address_l4 }}
+                    <br><strong>{{ home.0.address_l5 }}</strong>
+                </p>
+            </div>
+            <div class="col-md-4 text-center text-md-left mb-4 mb-md-0">
+                <div class="icon-rounded mb-4 bg-primary-light">
+                    <svg class="svg-icon w-2rem h-2rem text-primary">
+                        <use xlink:href="#landline-1"> </use>
+                    </svg>
+                </div>
+                <h3 class="h5">Call Us</h3>
+                <p class="text-muted"><strong><a href="{{ home.0.phone_no }}">{{ home.0.phone_number }}</a></strong></p>
+            </div>
+            <div class="col-md-4 text-center text-md-left mb-4 mb-md-0">
+                <div class="icon-rounded mb-4 bg-primary-light">
+                    <svg class="svg-icon w-2rem h-2rem text-primary">
+                        <use xlink:href="#mail-1"> </use>
+                    </svg>
+                </div>
+                <h3 class="h5">Electronic support</h3>
+                <p class="text-muted">Please feel free to write an email to us or to use our electronic ticketing
+                    system.</p>
+                <ul class="list-unstyled text-muted">
+                    <li>{{home.0.email_id}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-6 bg-gray-100" id="c-form">
+    <div class="container">
+        <h2 class="h4 mb-5">Contact form</h2>
+        <div class="row">
+            <div class="col-md-7 mb-5 mb-md-0">
+                {% for message in messages %}
+                <div class="alert alert-{{message.tags}} alert-dismissible fade show" style="font-size: 14px;"
+                    role="alert">
+                    <strong style="font-size: 14px;">Message: &nbsp;</strong> {{message}}.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                        style="outline: none; border: none; float: right; margin-top: -3px; background: none;"
+                        aria-label="Close">
+                        {% if message.tags == 'danger' %}
+                        <i class="fas fa-times" style="zoom: 2; color: #842029;"></i>
+                        {% else %} 
+                        <i class="fas fa-times" style="zoom: 2; color: #186429;"></i>
+                        {% endif %}
+                    </button>
+                </div>
+                {% endfor %}
+                <form class="form" id="contact-form" method="post" action="/contact#c-form">
+                    {% csrf_token %}
+                    <div class="controls">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="name">Your firstname *</label>
+                                    <input class="form-control" type="text" name="name" id="name"
+                                        placeholder="Enter your firstname" required="required">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="surname">Your lastname *</label>
+                                    <input class="form-control" type="text" name="surname" id="surname"
+                                        placeholder="Enter your  lastname" required="required">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="email">Your email *</label>
+                                    <input class="form-control" type="email" name="email" id="email"
+                                        placeholder="Enter your  email" required="required">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="phone">Your Phone Number *</label>
+                                    <input class="form-control" type="tel" name="phone" id="phone"
+                                        placeholder="Enter your  Phone Number" required="required">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="message">Your message for us *</label>
+                            <textarea class="form-control" rows="4" name="message" id="message"
+                                placeholder="Enter your message" required="required"></textarea>
+                        </div>
+                        <button class="btn btn-outline-primary" type="submit">Send message</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-5">
+                <div class="pl-lg-4">
+                    <p class="text-muted">Mukul Travel Agency, was earlier owned by Late Shri Gajanan Deshmukh. In his
+                        memory we have again started the shop with the same vission and the same name. We are very glad
+                        that we are here to help you on your every tour fantasy. We would love if you contact us by
+                        filling the form. Thank You</p>
+                    <p class="text-muted">{{ home.0.hero_grey_l1 }}
+                        <br>{{ home.0.hero_grey_l2 }}
+                        <br>{{home.0.hero_grey_l3 }}
+                        <br>{{ home.0.hero_grey_l4 }}
+                        <br>{{ home.0.hero_grey_l5 }}
+                    </p>
+                    <div class="social">
+                        <ul class="list-inline">
+                            <li class="list-inline-item"><a class="text-muted text-hover-primary"
+                                    href="{{ home.0.twitter_link }}" target="_blank" title="twitter"><i
+                                        class="fab fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a class="text-muted text-hover-primary"
+                                    href="{{ home.0.facebook_link }}" target="_blank" title="facebook"><i
+                                        class="fab fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a class="text-muted text-hover-primary"
+                                    href="{{ home.0.instagram_link }}" target="_blank" title="instagram"><i
+                                        class="fab fa-instagram"></i></a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<div id='map' style='width: 100%; height: 300px;'></div>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoidGlsdWNrZGF2ZSIsImEiOiJja2h5eW5yMXQwczNsMnlsdGdwODV4dzg1In0.APg6KDZSMOk-JQPKfNebUw';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [77.01606760709454, 20.70872752238668],
+        zoom: 15
+    });
+    var marker = new mapboxgl.Marker({
+        color: "#00000",
+    })
+        .setLngLat([77.01606760709454, 20.70872752238668])
+        .addTo(map);
+    map.addControl(new mapboxgl.NavigationControl());
+</script>
+{% endblock %}
+
+<!-- JavaScript files-->
+{% block script %}
+
+<script>
+    function injectSvgSprite(path) {
+
+        var ajax = new XMLHttpRequest();
+        ajax.open("GET", path, true);
+        ajax.send();
+        ajax.onload = function (e) {
+            var div = document.createElement("div");
+            div.className = 'd-none';
+            div.innerHTML = ajax.responseText;
+            document.body.insertBefore(div, document.body.childNodes[0]);
+        }
+    }
+
+
+
+
+    injectSvgSprite('https://demo.bootstrapious.com/directory/1-4/icons/orion-svg-sprite.svg');
+
+</script>
+
+
+
+
+{% endblock %}
